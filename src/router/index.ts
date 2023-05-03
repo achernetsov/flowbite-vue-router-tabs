@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ItemView from '../views/ItemView.vue'
+import ItemDescription from '../components/ItemDescription.vue'
+import ItemStats from '../components/ItemStats.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,13 +13,20 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
+      path: '/items/:id',
+      component: ItemView,
+      // https://router.vuejs.org/guide/essentials/nested-routes.html
+      children: [
+        {
+          path: 'description',
+          component: ItemDescription,
+        },
+        {
+          path: 'stats',
+          component: ItemStats,
+        },
+      ],
+    },
   ]
 })
 
