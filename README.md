@@ -5,6 +5,8 @@
 - Vue router
 - Pinia
 
+Live demo: https://archertech-lab.gitlab.io/flowbite-vue-router-tabs
+
 ![Demo](docs/demo.png)
 
 # Tailwind config
