@@ -3,6 +3,7 @@ image: node:16
 
 pages:
   script:
+    - npm i
     - npm run build
   artifacts:
     paths:
