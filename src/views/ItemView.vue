@@ -23,7 +23,7 @@ onMounted(() => {
 
 <template>
     <div v-if="itemStore.item">
-        <h2 class="mb-2 text-lg font-semibold text-gray-900">{{ itemStore.item.name }}</h2>
+        <h2 class="mb-2 text-lg font-semibold text-gray-900">Item: {{ itemStore.item.name }}</h2>
 
         <!-- https://flowbite.com/docs/components/tabs/#tabs-with-underline -->
         <div id="tabsButtons" class="mb-4 text-sm font-medium text-center text-gray-500 border-b border-gray-200">
