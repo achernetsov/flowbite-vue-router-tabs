@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useItemStore } from '@/stores/currentItemStore';
-const item = useItemStore().item
+const itemStore = useItemStore()
 
 onMounted(() => {
     console.info(`Mounted description tab`)
@@ -9,5 +9,5 @@ onMounted(() => {
 </script>
 
 <template>
-    <p>{{ item?.description }}</p>
+    <p>{{ itemStore.item?.description }}</p>
 </template>

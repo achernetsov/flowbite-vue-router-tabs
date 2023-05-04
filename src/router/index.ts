@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import ItemView from '../views/ItemView.vue'
 import ItemDescriptionTab from '../components/ItemDescriptionTab.vue'
 import ItemStatsTab from '../components/ItemStatsTab.vue'
+import HomeView from '../views/HomeView.vue'
+import ItemView from '../views/ItemView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,10 +18,16 @@ const router = createRouter({
       // https://router.vuejs.org/guide/essentials/nested-routes.html
       children: [
         {
+          path: '',
+          redirect: { name: 'itemDescription' },
+        },
+        {
+          name: 'itemDescription',
           path: 'description',
           component: ItemDescriptionTab,
         },
         {
+          name: 'itemStats',
           path: 'stats',
           component: ItemStatsTab,
         },
