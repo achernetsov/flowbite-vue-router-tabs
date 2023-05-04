@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ItemView from '../views/ItemView.vue'
-import ItemDescription from '../components/ItemDescription.vue'
-import ItemStats from '../components/ItemStats.vue'
+import ItemDescriptionTab from '../components/ItemDescriptionTab.vue'
+import ItemStatsTab from '../components/ItemStatsTab.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,11 +19,11 @@ const router = createRouter({
       children: [
         {
           path: 'description',
-          component: ItemDescription,
+          component: ItemDescriptionTab,
         },
         {
           path: 'stats',
-          component: ItemStats,
+          component: ItemStatsTab,
         },
       ],
     },

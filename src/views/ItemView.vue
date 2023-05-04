@@ -1,27 +1,25 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useRoute, RouterLink, RouterView } from 'vue-router';
-import type { Item } from '../model/item';
 import { findItem } from '../db'
+import { useItemStore } from '../stores/currentItemStore'
 
+const itemStore = useItemStore()
 const route = useRoute()
-const loading = ref(true)
-const item = ref<Item>()
 
 onMounted(() => {
-    item.value = findItem(parseInt(route.params.id as string))
-    loading.value = false
-    console.info(`Mounted ${JSON.stringify(item.value)}`)
+    itemStore.item = findItem(parseInt(route.params.id as string))
+    console.info(`Mounted item view: ${JSON.stringify(itemStore.item)}`)
 })
 </script>
 
 <template>
-    <div v-if="!loading">
-        <h2 class="mb-2 text-lg font-semibold text-gray-900">{{ item!.name }}</h2>
+    <div v-if="itemStore.item">
+        <h2 class="mb-2 text-lg font-semibold text-gray-900">{{ itemStore.item.name }}</h2>
 
         <!-- https://flowbite.com/docs/components/tabs/#tabs-with-underline -->
         <div id="tabsButtons"
-            class="text-sm font-medium text-center text-gray-500 border-b border-gray-200">
+            class="mb-4 text-sm font-medium text-center text-gray-500 border-b border-gray-200">
             <ul class="flex flex-wrap -mb-px">
                 <li class="mr-2">
                     <!-- https://router.vuejs.org/guide/essentials/nested-routes.html -->
@@ -38,6 +36,8 @@ onMounted(() => {
                 </li>
             </ul>
         </div>
-        <RouterView />
+        <div id="tab-content" class="text-sm text-gray-500">
+            <RouterView />
+        </div>
     </div>
 </template>
