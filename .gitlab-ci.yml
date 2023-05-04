@@ -2,6 +2,9 @@
 image: node:16
 
 pages:
+  cache:
+    paths:
+    - node_modules/
   script:
     - npm i
     - npm run build
