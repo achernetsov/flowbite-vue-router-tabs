@@ -1,3 +1,7 @@
+# Deprecated
+
+I finally implemented tabs of my dreams on daisyui: https://gitlab.com/archertech-lab/daisyui-vue-admin-minimal
+
 # Overview
 
 [Flowbite Tailwind tabs](https://flowbite.com/docs/components/tabs) implementation:
